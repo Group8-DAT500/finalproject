@@ -1,6 +1,6 @@
 # Application to extract keyword (using Hadoop and mainly Spark)
 
-# The raw data used
+## The raw data used
 
 To use this program download the raw data on your machine. It can be found in [here](https://raw.githubusercontent.com/daveshap/PlainTextWikipedia/main/README.md)
 
@@ -11,7 +11,7 @@ hadoop fs -put <raw data file>/*.txt
 
 ```
 
-# Preprocess on Hadoop
+## Preprocess on Hadoop
 
 Run the following command to start the preprocessing by Hadoop :
 
@@ -41,7 +41,7 @@ hadoop fs -put output.csv /
 ```
 
 
-# Begining with the Spark 
+## Begining with the Spark 
 
 To start the Spark application you should save the csv file inside a delta table. to do that run the fist code block of the `Spark_code_group8.ipynb` jupyter notebook file. 
 
@@ -61,7 +61,7 @@ df.write.format("delta").mode("overwrite").save("hdfs:///table_2g")
 
 After this session  of Spark is completed you have a delta table that your can run for each of the subsequent Spark optimization method.
 
-# Keywords 
+### Keywords 
 
 Run the code block `Keywords` to see the result on basic application. Note that to run it on your entire dataframe you shoud remove the limit(2) from the code below :
 
@@ -80,11 +80,11 @@ Mean overlap: 0.5
 |1146534968|[waleswales, identified, inhabited, humans, years, evidenced, discovery, neanderthal, bontnewydd, palaeolithic]|0      |
 +----------+---------------------------------------------------------------------------------------------------------------+-------+
 
-# Data Frame size Reduced
+### Data Frame size Reduced
 
 Run the code block `Keywords` to see the result on reduced-sized dataframe  application
 
-# IO- optimzation: Partitioning (36) with cacheing
+### IO- optimzation: Partitioning (36) with cacheing
 
 
 run the application on multiple partition size. You can change it in this section of the script:
@@ -97,21 +97,21 @@ dftest = spark.read.format("delta")\
          .limit(2)
 ```
 
-# IO-optimization: Columnar compression
+### IO-optimization: Columnar compression
 
 Run the code block `IO-optimization: Columnar compression` to test the compression method as optimization
 
-# Map Partition
+### Map Partition
 
 Run the code block of MapPartition to see the result. This method has a signifcantly lower execution time.
 
-# Using HOF
+### Using HOF
 
 This method only runs in small datafram size. to try this method reduce the data frame size to small number of rows with the help of `limit()` command
 
 
 
-# Spark UI 
+### Spark UI 
 
-Finally you can see the detail of spark performance in Spark UI. For tracking the jobs connect to: http://localhost:8088/
+Finally you can see the detail of spark performance in Spark UI. For tracking the jobs connect to: http://localhost:8088/.
 remember to add the port in your machine.
