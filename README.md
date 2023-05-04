@@ -16,7 +16,7 @@ hadoop fs -put <the name of your raw data file>/*.txt
 Run the following command to start the preprocessing by Hadoop :
 
 ```bash
-python3 Preproccessing_on_hadoop.py --hadoop-streaming-jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar -r hadoop hdfs:///<the name of your raw data file>.txt --output-dir hdfs:///output --no-output
+python3 Preprocessing_on_hadoop.py --hadoop-streaming-jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar -r hadoop hdfs:///<the name of your raw data file>.txt --output-dir hdfs:///output --no-output
 
 ```
 
