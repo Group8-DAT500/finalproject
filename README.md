@@ -4,10 +4,10 @@
 
 To use this program download the raw data on your machine. It can be found in [here](https://raw.githubusercontent.com/daveshap/PlainTextWikipedia/main/README.md)
 
-After download copy the XML file on Hadoop Ditributed File System (HDFS), with this command in your terminal:
+After downloading copy the XML file on Hadoop Ditributed File System (HDFS), with this command in your terminal:
 
-```
-hadoop fs -put <raw data file>/*.txt  
+```bash
+hadoop fs -put <the name of your raw data file>/*.txt  
 
 ```
 
@@ -16,7 +16,7 @@ hadoop fs -put <raw data file>/*.txt
 Run the following command to start the preprocessing by Hadoop :
 
 ```bash
-python3 Preproccessing_on_hadoop.py --hadoop-streaming-jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar -r hadoop hdfs:///<raw data file>.txt --output-dir hdfs:///output --no-output
+python3 Preproccessing_on_hadoop.py --hadoop-streaming-jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar -r hadoop hdfs:///<the name of your raw data file>.txt --output-dir hdfs:///output --no-output
 
 ```
 
@@ -52,7 +52,7 @@ remember to replace the `/simplewiki/output_full_2g.csv` with your own path and 
 df = spark.read.csv("/simplewiki/output_full_2g.csv", sep = ',', header = True, schema = schema)
 ```
 
-later in the script the fataframe is written into an unmangaed delta table:
+later in the script the dataframe is written into an unmangaed delta table:
 
 ```python
 #write the df to a unmanaged delta table. 
@@ -73,21 +73,24 @@ dftest = spark.read.format("delta").load("hdfs:///table_2g").limit(2)
 This is an example of the output displayed in notebook:
 
 Mean overlap: 0.5
-+----------+---------------------------------------------------------------------------------------------------------------+-------+
+<!-- +----------+---------------------------------------------------------------------------------------------------------------+-------+
 |ID        |keywords                                                                                                       |overlap|
 +----------+---------------------------------------------------------------------------------------------------------------+-------+
 |1133240144|[zakraj, ek, july, ndash, september, slovene, mathematician, computer, scientist, born]                        |1      |
 |1146534968|[waleswales, identified, inhabited, humans, years, evidenced, discovery, neanderthal, bontnewydd, palaeolithic]|0      |
-+----------+---------------------------------------------------------------------------------------------------------------+-------+
++----------+---------------------------------------------------------------------------------------------------------------+-------+ -->
+
+
+![Alt text](/Output.png "Optional title")
 
 ### Data Frame size Reduced
 
-Run the code block `Keywords` to see the result on reduced-sized dataframe  application
+Run the code block `Keywords` to see the result on reduced-sized dataframe  application.
 
 ### IO- optimzation: Partitioning (36) with cacheing
 
 
-run the application on multiple partition size. You can change it in this section of the script:
+Run the application on multiple partition size. You can change it in this section of the script:
 
 ```python
 dftest = spark.read.format("delta")\
@@ -107,11 +110,12 @@ Run the code block of MapPartition to see the result. This method has a signifca
 
 ### Using HOF
 
-This method only runs in small datafram size. to try this method reduce the data frame size to small number of rows with the help of `limit()` command
+This method only runs in small datafram size. to try this method reduce the data frame size to small number of rows using the `limit()` command
 
 
 
 ### Spark UI 
 
-Finally you can see the detail of spark performance in Spark UI. For tracking the jobs connect to: http://localhost:8088/.
+Finally you can see the details of spark performance in Spark UI. For tracking the jobs connect to: http://localhost:8088/.
+
 remember to add the port in your machine.
