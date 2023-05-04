@@ -2,7 +2,7 @@
 
 ## The raw data used
 
-To use this program download the raw data on your machine. It can be found in [here](https://raw.githubusercontent.com/daveshap/PlainTextWikipedia/main/README.md)
+To use this program download the raw data on your machine. It can be found in [here](https://github.com/daveshap/PlainTextWikipedia)
 
 After downloading copy the XML file on Hadoop Ditributed File System (HDFS), with this command in your terminal:
 
