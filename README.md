@@ -81,7 +81,7 @@ Mean overlap: 0.5
 +----------+---------------------------------------------------------------------------------------------------------------+-------+ -->
 
 
-![Alt text](/Output.png "Optional title")
+![output img](/Output.png "output image")
 
 ### Data Frame size Reduced
 
