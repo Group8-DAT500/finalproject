@@ -122,3 +122,9 @@ Remember to add the port in your machine.
 
 
 ![port img](/sparkUI.png "port")
+
+
+
+## Remarks about our project
+
+Although the requirement of the project was to implement the preprocessing tasks on Spark, we have done most of the preprocessing in Hadoop. Since we were almost finished with the preprocessing of Hadoop when this requirement was announced. However, we still performed some preprocessing in Spark like changing data types and cleaning the text and title column. Additionally, the keyword selection and comparison were executed in Spark, which created enough code to optimize in Spark. Another requirement was writing the result in a delta table. We did not include this in our testing, because we supposed this would take equally as much time for each method. We did, however, include the code to do so
