@@ -118,4 +118,7 @@ This method only runs in small datafram size. to try this method reduce the data
 
 Finally you can see the details of spark performance in Spark UI. For tracking the jobs connect to: http://localhost:8088/.
 
-remember to add the port in your machine.
+Remember to add the port in your machine.
+
+
+![port img](/sparkUI.png "port")
