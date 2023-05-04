@@ -90,7 +90,7 @@ Run the code block `Keywords` to see the result on reduced-sized dataframe  appl
 ### IO- optimzation: Partitioning (36) with cacheing
 
 
-Run the application on multiple partition size. You can change it in this section of the script:
+Run the application on multiple partition size and see the different execution times. You can change it in this section of the script:
 
 ```python
 dftest = spark.read.format("delta")\
