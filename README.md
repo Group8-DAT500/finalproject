@@ -102,15 +102,15 @@ dftest = spark.read.format("delta")\
 
 ### IO-optimization: Columnar compression
 
-Run the code block `IO-optimization: Columnar compression` to test the compression method as optimization
+Run the code block `IO-optimization: Columnar compression` to test the compression method as optimization.
 
 ### Map Partition
 
-Run the code block of MapPartition to see the result. This method has a signifcantly lower execution time.
+Run the code block of `Map Partition` to see the result. This method has a signifcantly lower execution time.
 
 ### Using HOF
 
-This method only runs in small datafram size. to try this method reduce the data frame size to small number of rows using the `limit()` command
+This method only runs in small datafram size. to try this method reduce the data frame size to small number of rows using the `limit()` command.
 
 
 
