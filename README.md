@@ -94,7 +94,7 @@ Run the application on multiple partition size. You can change it in this sectio
 
 ```python
 dftest = spark.read.format("delta")\
-         .option("numPartitions", 72) \
+         .option("numPartitions", 36) \  
          .option("partitionBy", "ID") \
          .load("hdfs:///table_2g")\
          .limit(2)
